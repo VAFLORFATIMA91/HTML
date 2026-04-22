@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beach Resort Sign In</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* BODY */
+body {
+    background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('beach.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* FORM CONTAINER */
+.login-container {
+    background: rgba(0,0,0,0.6);
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.login-container h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #ffb700;
+}
+
+/* INPUTS */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* ROLE (RADIO BUTTONS) */
+.role {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.role label {
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+/* BUTTONS */
+.login-container .login-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.login-container .login-buttons button {
+    flex: 1;
+    padding: 12px;
+    background: #ffb700;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-container .login-buttons button:hover {
+    background: #e6a600;
+}
+
+/* LINKS */
+.login-container .links {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-container .links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.login-container .links a:hover {
+    text-decoration: underline;
+}
+</style>
+
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Sign In</h2>
+   
+    <form method="get">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+      
+
+        <!-- TWO BUTTONS FOR PURE HTML REDIRECTION -->
+        <div class="login-buttons">
+            <button type="submit" formaction="homepage.html">Login as Guest</button>
+            <button type="submit" formaction="adminDash.html">Login as 				Admin</button>
+        </div>
+    </form>
+
+    <div class="links">
+        <a href="register1.html">Register</a> |
+        <a href="index1.html">Home</a>
+    </div>
+</div>
+
+</body>
+</html>

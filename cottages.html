@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resort Reservation System</title>
+
+<style>
+
+/* ===== FULL PAGE LAYOUT ===== */
+body{
+font-family:Arial,sans-serif;
+margin:0;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+url("beach.jpeg") no-repeat center center fixed;
+background-size:cover;
+}
+
+main{
+flex:1;
+}
+
+/* ===== HEADER ===== */
+.header{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:15px;
+padding:20px;
+background:rgba(0,136,255,0.9);
+color:white;
+}
+
+.header img{
+width:60px;
+height:60px;
+object-fit:cover;
+}
+
+.header h1{
+margin:0;
+font-size:40px;
+}
+
+/* ===== NAVIGATION ===== */
+.menu{
+background:rgba(0,0,50,0.85);
+padding:15px 0;
+position: relative; /* for right-side user actions */
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.menu-center{
+display:flex;
+justify-content:center;
+gap:50px;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.menu a:hover{
+color:#00c3ff;
+}
+
+/* ===== USER ACTIONS (HELLO + LOGOUT) ===== */
+.user-actions{
+position: absolute;
+right: 60px;
+display:flex;
+gap:10px;
+align-items:center;
+}
+
+.user-actions .greeting{
+color:#FFD700; /* Gold text */
+font-weight:bold;
+}
+
+.user-actions .logout-btn{
+padding:8px 15px;
+background:#FFD700; /* Gold button */
+color:black;
+text-decoration:none;
+border-radius:5px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.user-actions .logout-btn:hover{
+background:#e6c200; /* darker gold on hover */
+color:white;
+}
+
+/* ===== ROOMS ===== */
+.rooms-section{
+    padding:50px;
+    width: fit-content;   /* 👈 mo-fit sa sulod */
+    margin:auto;
+}
+
+.rooms-section h2{
+text-align:center;
+color:#fff;
+margin-bottom:40px;
+}
+
+/* LIST STYLE */
+.room-grid{
+display:flex;
+flex-direction:column;
+gap:25px;
+align-items:center;
+}
+
+/* RECTANGLE CARD */
+.room-card{
+display:flex;
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 4px 15px rgba(0,0,0,0.3);
+max-width:850px;
+}
+
+/* IMAGE LEFT */
+.room-card img{
+width:320px;
+height:220px;
+object-fit:cover;
+}
+
+/* DETAILS RIGHT */
+.room-details{
+padding:20px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+/* TITLE */
+.room-details h3{
+margin:0 0 5px 0;
+}
+
+/* PRICE */
+.room-price{
+color:#28a745;
+font-weight:bold;
+font-size:18px;
+margin-bottom:5px;
+}
+
+/* CAPACITY */
+.room-capacity{
+font-size:14px;
+color:#555;
+margin-bottom:5px;
+}
+
+/* BUTTON */
+.btn-book{
+display:inline-block;
+padding:8px 15px;
+border-radius:6px;
+background:#007BFF;
+color:white;
+text-decoration:none;
+width:150px;
+text-align:center;
+}
+
+.btn-book:hover{
+background:#0056b3;
+}
+
+/* BADGE */
+.badge{
+display:inline-block;
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+margin-bottom:8px;
+}
+
+.available{
+background:#28a745;
+color:white;
+}
+
+.full{
+background:#dc3545;
+color:white;
+}
+
+/* ===== FOOTER ===== */
+footer{
+text-align:center;
+padding:30px;
+background-color:rgba(0,0,50,0.85);
+color:#fff;
+margin-top:50px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+.room-card{
+flex-direction:column;
+}
+
+.room-card img{
+width:100%;
+height:200px;
+}
+
+.menu-center{
+flex-direction:column;
+align-items:center;
+gap:15px;
+}
+
+.user-actions{
+position: static;
+margin-top:10px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+<img src="logo4.jpeg">
+<h1>Resort Reservation</h1>
+</header>
+
+<nav class="menu">
+<div class="menu-center">
+<a href="homepage.html">Home</a>
+<a href="rooms.html">Our Rooms</a>
+<a href="cottages.html">Cottages</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<!-- Hello Guest + Logout -->
+<div class="user-actions">
+<span class="greeting">Hello, Guest</span>
+<a href="index1.html" class="logout-btn">Logout</a>
+</div>
+</nav>
+
+<main>
+
+<section class="rooms-section">
+<h2>Our Cottages</h2>
+
+<div class="room-grid">
+
+<!-- COTTAGE 1 -->
+<div class="room-card">
+<img src="cottage1.jpg">
+<div class="room-details">
+<span class="badge available">Available</span>
+<h3>Cottage 1</h3>
+<div class="room-price">₱500 / 8 hours</div>
+<div class="room-capacity">👤 Max: 5-8 Persons</div>
+<a href="cottage1.html" class="btn-book">Reserve Now!</a>
+</div>
+</div>
+
+<!-- COTTAGE 2 -->
+<div class="room-card">
+<img src="cottage2.jpg">
+<div class="room-details">
+<span class="badge available">Available</span>
+<h3>Cottage 2</h3>
+<div class="room-price">₱1,000 / 8 hours</div>
+<div class="room-capacity">👤 Max: 10-15 Persons</div>
+<a href="cottage2.html" class="btn-book">Reserve Now!</a>
+</div>
+</div>
+
+<!-- FLOATING COTTAGE -->
+<div class="room-card">
+<img src="cottage3.jpg">
+<div class="room-details">
+<span class="badge full">Fully Booked</span>
+<h3>Floating Cottage</h3>
+<div class="room-price">₱2,500 / 8 hours</div>
+<div class="room-capacity">👤 Max: 8-12 Persons</div>
+<a href="cottage3.html" class="btn-book">Reserve Now!</a>
+</div>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+© 2026 Resort Reservation System. All rights reserved.
+</footer>
+
+</body>
+</html>

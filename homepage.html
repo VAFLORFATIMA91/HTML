@@ -3,174 +3,361 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resort Reservation System</title>
+<title>Resort Reservation</title>
 
 <style>
-
-/* ===== FULL PAGE LAYOUT ===== */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+body{
+    font-family:Arial, sans-serif;
+    margin:0;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
     background:
-        linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-        url("beach.jpeg") no-repeat center center fixed;
-    background-size: cover;
+    linear-gradient(rgba(0,0,0,0.35),rgba(0,0,0,0.35)),
+    url("beach.jpeg") no-repeat center center fixed;
+    background-size:cover;
 }
 
-/* Push footer to bottom */
-main {
-    flex: 1;
+main{
+    flex:1;
 }
 
-/* ===== HEADER WITH LOGO ===== */
-.header {
+.header{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    padding:20px;
+    background:rgba(0,136,255,0.9);
+    color:white;
+}
+
+.header img{
+    width:60px;
+    height:60px;
+    object-fit:cover;
+}
+
+.header h1{
+    margin:0;
+    font-size:40px;
+}
+
+.menu{
+    background:rgba(0,0,50,0.85);
+    padding:15px 0;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    padding: 20px;
-    background: rgba(0,136,255,0.9);
-    color: white;
 }
 
-.header img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
+.menu-center{
+    display:flex;
+    justify-content:center;
+    gap:50px;
 }
 
-.header h1 {
-    margin: 0;
-    font-size: 28px;
-}
-
-/* ===== NAVIGATION BAR ===== */
-.menu {
-    position: relative;
-    background: rgba(0,0,50,0.85);
-    padding: 15px 0;
-}
-
-/* CENTER MENU */
-.menu-center {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-}
-
-/* RIGHT MENU */
-.menu-right {
+.user-actions{
     position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    gap: 20px;
+    right: 60px;
+    display:flex;
+    gap:10px;
+    align-items:center;
 }
 
-.menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
+.user-actions .greeting{
+    font-weight:bold;
+    color: #FFD700;
 }
 
-.menu a:hover {
-    color: #00c3ff;
+.user-actions .logout-btn{
+    padding: 8px 15px;
+    background:#ffb700;
+    color:black;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.user-actions .logout-btn:hover{
+    background:#e6a600;
+    color:white;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu a:hover{
+    color:#00c3ff;
 }
 
 /* ===== HERO ===== */
-.hero {
-    text-align: center;
-    padding: 120px 20px;
-    background-color: rgba(0,0,50,0.35);
-    color: white;
+.hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:80px 60px;
+    background-color:rgba(0,0,50,0.35);
+    color:white;
+    gap:40px;
 }
 
-.hero h1 {
-    font-size: 3em;
-    margin-bottom: 15px;
+/* SLIDER */
+.slider{
+    position:relative;
+    width:350px;
+    height:240px;
+    overflow:hidden;
+    border-radius:10px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
 }
 
-.hero p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
+.slider img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    animation:slideShow 16s infinite;
 }
 
-/* ===== FOOTER ===== */
-footer {
-    text-align: center;
-    padding: 30px;
-    background-color: rgba(0,0,50,0.85);
-    color: #fff;
+.slider img:nth-child(1){animation-delay:0s;}
+.slider img:nth-child(2){animation-delay:4s;}
+.slider img:nth-child(3){animation-delay:8s;}
+.slider img:nth-child(4){animation-delay:12s;}
+
+@keyframes slideShow{
+    0%{opacity:0;}
+    5%{opacity:1;}
+    25%{opacity:1;}
+    30%{opacity:0;}
+    100%{opacity:0;}
+}
+
+/* HERO TEXT */
+.hero-text{
+    max-width:500px; /* 👈 increased para di mabali */
+    text-align:center;
+    margin:auto;
+}
+
+.hero-text h1{
+    font-size:2.5em;
+    margin-bottom:10px;
+    white-space: nowrap; /* 👈 prevent line break */
+}
+
+.hero-text p{
+    font-size:1.1em;
+}
+
+/* MAP */
+.map{
+    width:350px;
+    height:240px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* FACILITIES */
+.facilities{
+    padding:30px 20px;
+    background-color:rgba(0,0,50,0.35);
+}
+
+.facilities h2{
+    text-align:center;
+    color:white;
+    margin-bottom:20px;
+}
+
+.facilities-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.facility{
+    background-color:rgba(255,255,255,0.1);
+    border-radius:12px;
+    padding:15px;
+    width:220px;
+    text-align:center;
+    color:white;
+    transition:0.3s;
+}
+
+.facility span{
+    font-size:40px;
+    display:block;
+    margin-bottom:10px;
+}
+
+.facility h3{
+    margin-bottom:8px;
+}
+
+.facility p{
+    font-size:13px;
+}
+
+.facility:hover{
+    transform:translateY(-4px);
+    background-color:rgba(255,255,255,0.2);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px;
+    background-color:rgba(0,0,50,0.85);
+    color:#fff;
 }
 
 /* ===== RESPONSIVE ===== */
-@media(max-width: 768px) {
+@media(max-width:768px){
 
-    .header {
-        flex-direction: column;
-    }
-
-    .menu-center {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .menu-right {
-        position: static;
-        transform: none;
-        justify-content: center;
-        margin-top: 10px;
-    }
+.hero{
+    flex-direction:column;
 }
 
+.hero-text h1{
+    white-space: normal; /* allow wrap sa mobile */
+    font-size:2em;
+}
+
+.slider, .map{
+    width:100%;
+}
+
+.menu-center{
+    flex-direction:column;
+    gap:15px;
+}
+
+.user-actions{
+    position: static;
+    margin-top:10px;
+}
+
+}
 </style>
+
 </head>
 
 <body>
 
-<!-- HEADER WITH LOGO -->
 <header class="header">
-    <img src="logo4.jpeg" alt="Resort Logo">
-    <h1>Resort Reservation System</h1>
+    <img src="logo4.jpeg">
+    <h1>Resort Reservation</h1>
 </header>
 
-<!-- NAVIGATION -->
 <nav class="menu">
-    
-    <!-- CENTER LINKS -->
     <div class="menu-center">
-        <a href="#">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#rooms">Our Rooms</a>
+        <a href="homepage.html">Home</a>
+        <a href="rooms.html">Our Rooms</a>
+        <a href="cottages.html">Cottages</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
     </div>
 
-    <!-- RIGHT LINKS -->
-    <div class="menu-right">
-        <a href="#">Login</a>
-        <a href="#">Logout</a>
+    <div class="user-actions">
+        <span class="greeting">Hello, Guest</span>
+        <a href="index1.html" class="logout-btn">Logout</a>
     </div>
-
 </nav>
 
-<!-- MAIN CONTENT -->
 <main>
 
 <section class="hero">
+
+<div class="slider">
+    <img src="standard.jpg">
+    <img src="deluxe1.jpeg">
+    <img src="suites.jpeg">
+    <img src="cabana.jpeg">
+</div>
+
+<div class="hero-text">
     <h1>Welcome to Paradise</h1>
-    <p>Your premier destination for luxury, relaxation, and unforgettable memories.</p>
+    <p>
+        We’re delighted to have you here. Explore our rooms and cottages, 
+        and reserve your perfect stay with ease.
+    </p>
+</div>
+
+<div class="map">
+<iframe
+width="100%"
+height="100%"
+style="border:0"
+loading="lazy"
+allowfullscreen
+src="https://maps.google.com/maps?q=boracay%20island&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+</div>
+
+</section>
+
+<section class="facilities">
+
+<h2>🏝️ Our Resort Facilities</h2>
+
+<div class="facilities-container">
+
+<div class="facility">
+    <span>🏊</span>
+    <h3>Swimming Pools</h3>
+    <p>Relax and enjoy multiple outdoor pools.</p>
+</div>
+
+<div class="facility">
+    <span>🍽️</span>
+    <h3>Restaurants & Bars</h3>
+    <p>Enjoy Filipino and international dishes.</p>
+</div>
+
+<div class="facility">
+    <span>💆</span>
+    <h3>Spa & Wellness</h3>
+    <p>Pamper yourself with relaxing treatments.</p>
+</div>
+
+<div class="facility">
+    <span>🏖️</span>
+    <h3>Private Beach</h3>
+    <p>Direct access to white sand beaches.</p>
+</div>
+
+<div class="facility">
+    <span>🚤</span>
+    <h3>Water Sports</h3>
+    <p>Kayaking, snorkeling and jet skiing.</p>
+</div>
+
+<div class="facility">
+    <span>🧘</span>
+    <h3>Fitness & Yoga</h3>
+    <p>Stay active with wellness programs.</p>
+</div>
+
+</div>
+
 </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
-    © 2026 Resort Reservation System. All rights reserved.
+© 2026 Resort Reservation System
 </footer>
 
 </body>

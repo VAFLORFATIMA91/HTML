@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Room Reservation</title>
+
+<style>
+
+/* ===== PAGE ===== */
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), 
+  url("beach.jpeg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+main{
+  flex:1;
+}
+
+/* HEADER */
+.header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: #0088ff;
+  color: white;
+}
+
+.header img{
+  width: 60px;
+}
+
+.header h1{
+  margin: 0;
+  font-size: 38px;
+}
+
+/* NAVIGATION */
+.menu{
+  background: #001f3f;
+  padding: 15px 0;
+}
+
+.menu-center{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.menu a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover{
+  color: #00c3ff;
+}
+
+/* RESERVATION SECTION */
+.reservation-section{
+  padding: 50px;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.reservation-box{
+  display: flex;
+  gap: 10px; /* FIX: spacing between columns */
+  background: white;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+}
+
+/* LEFT COLUMN */
+.room-details{
+  width: 35%;
+  padding: 30px;
+  background: #f8fbff;
+  border-radius: 12px;
+  border-right: 1px solid #eee;
+}
+
+.room-details h3{
+  margin-top: 0;
+}
+
+.room-details p{
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.room-details ul{
+  margin-top: 5px;
+  padding-left: 18px;
+}
+
+.room-details li{
+  margin-bottom: 5px;
+}
+
+/* CENTER COLUMN */
+.calendar-box{
+  width: 30%;
+  padding: 30px;
+  border-right: 1px solid #eee;
+}
+
+.calendar-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.calendar{
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  gap: 8px;
+}
+
+.day-name{
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+  background: #f2f2f2;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.day{
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.day:hover{
+  transform: scale(1.05);
+}
+
+.available{
+  background: #28a745;
+}
+
+.booked{
+  background: #dc3545;
+}
+
+.today{
+  background: #ffc107;
+  color: black;
+}
+
+/* LEGEND */
+.legend{
+  margin-top: 12px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* RIGHT COLUMN */
+.form-side{
+  width: 35%;
+  padding: 30px;
+}
+
+.room-name{
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label{
+  font-weight: 600;
+  font-size: 14px;
+}
+
+input{
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+input:focus{
+  border-color: #007BFF;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0,123,255,0.3);
+}
+
+.btn-submit{
+  margin-top: 15px;
+  padding: 14px;
+  background: linear-gradient(135deg,#1e90ff,#0066ff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-submit:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* FOOTER */
+footer{
+  text-align: center;
+  padding: 30px;
+  background: #001f3f;
+  color: white;
+}
+
+/* MOBILE */
+@media(max-width:1024px){
+  .reservation-box{
+    flex-direction: column;
+  }
+  .room-details, .calendar-box, .form-side{
+    width: 100%;
+    border: none;
+  }
+  .calendar-box{
+    margin: 20px 0;
+  }
+  .menu-center{
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <img src="logo4.jpeg" alt="Logo">
+  <h1>Resort Reservation</h1>
+</header>
+
+<nav class="menu">
+  <div class="menu-center">
+    <a href="homepage.html">Home</a>
+    <a href="rooms.html">Our Rooms</a>
+    <a href="cottages.html">Cottages</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="reservation-section">
+
+<div class="reservation-box">
+
+  <div class="room-details">
+  <h3>🏝 Floating Cottage (Overwater Cottage)</h3>
+
+<p>📍 Location: Near Shoreline (Anchored Area)</p>
+<p>🪑 Capacity: 8–12 Persons</p>
+<p>⏱ Rental Duration: Day Use (8AM – 6PM)</p>
+<p>💵 Price: ₱2,500 / day</p>
+<p>💰 Security Deposit: ₱500 (refundable)</p>
+<p>⚠️ Safety Limit: Max 12 persons only</p>
+<p>⭐ Rating: 4.6 / 5</p>
+
+<h4>✨ Amenities</h4>
+<ul>
+  <li>🌊 Floating Bamboo Platform (Stable & Anchored)</li>
+  <li>🏖 Direct Sea Access (Swimming Area)</li>
+  <li>🪑 Fixed Table & Bench Seating</li>
+  <li>🌴 Nipa Hut Roof (Sun Protection)</li>
+  <li>🛟 Life Vests Available (Limited)</li>
+  <li>🚤 Boat Transfer Included</li>
+  <li>🧺 Picnic Area (Food Allowed)</li>
+  <li>🗑 Trash Bin Provided (Clean-as-you-go policy)</li>
+</ul>
+
+<h4>⚠️ Notes & Policies</h4>
+<ul>
+  <li>🚫 No overnight stay allowed</li>
+  <li>🚫 No jumping during strong waves</li>
+  <li>⚡ No electricity available</li>
+  <li>👶 Children must be supervised at all times</li>
+  <li>🌧 Subject to weather conditions</li>
+</ul>
+</div>
+
+  <!-- CALENDAR -->
+  <div class="calendar-box">
+    <div class="calendar-header">
+        <span>❮</span>
+        <div>April 2026</div>
+        <span>❯</span>
+    </div>
+
+    <div class="calendar">
+        <div class="day-name">Sun</div>
+        <div class="day-name">Mon</div>
+        <div class="day-name">Tue</div>
+        <div class="day-name">Wed</div>
+        <div class="day-name">Thu</div>
+        <div class="day-name">Fri</div>
+        <div class="day-name">Sat</div>
+
+        <!-- EMPTY (April starts Wednesday) -->
+        <div></div>
+        <div></div>
+        <div></div>
+
+        <!-- WEEK 1 -->
+        <div class="day booked">1</div>
+        <div class="day booked">2</div>
+        <div class="day booked">3</div>
+        <div class="day booked">4</div>
+
+        <!-- WEEK 2 -->
+        <div class="day booked">5</div>
+        <div class="day booked">6</div>
+        <div class="day booked">7</div>
+        <div class="day booked">8</div>
+        <div class="day booked">9</div>
+        <div class="day booked">10</div>
+        <div class="day booked">11</div>
+
+        <!-- WEEK 3 -->
+        <div class="day booked">12</div>
+        <div class="day booked">13</div>
+        <div class="day booked">14</div>
+        <div class="day booked">15</div>
+        <div class="day booked">16</div>
+        <div class="day booked">17</div>
+        <div class="day booked">18</div>
+
+        <!-- WEEK 4 -->
+        <div class="day booked">19</div>
+        <div class="day booked">20</div>
+        <div class="day booked">21</div>
+        <div class="day booked">22</div>
+        <div class="day booked">23</div>
+        <div class="day booked">24</div>
+        <div class="day booked">25</div>
+
+        <!-- WEEK 5 -->
+        <div class="day booked">26</div>
+        <div class="day booked">27</div>
+        <div class="day booked">28</div>
+        <div class="day booked">29</div>
+        <div class="day booked">30</div>
+
+    </div>
+
+    <div class="legend">
+        🟢 Available &nbsp;&nbsp; 🔴 Booked 
+    </div>
+</div>
+
+  <!-- FORM -->
+  <div class="form-side">
+    <div class="room-name">Reservation Request</div>
+    <form action="guestDash.html" method="GET">
+      <label>Full Name</label>
+      <input type="text" name="fullname" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Contact Number</label>
+      <input type="text" name="contact" required>
+
+      <label>Check-in Date</label>
+      <input type="date" name="checkin" required>
+
+      <label>Check-out Date</label>
+      <input type="date" name="checkout" required>
+
+      <button type="submit" class="btn-submit">Confirm Reservation</button>
+    </form>
+  </div>
+
+</div>
+
+</section>
+</main>
+
+<footer>
+© 2026 Resort Reservation System
+</footer>
+
+</body>
+</html>

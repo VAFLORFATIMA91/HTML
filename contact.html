@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Resort Reservation System</title>
+
+<style>
+
+/* ===== FULL PAGE LAYOUT ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("beach.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+main {
+    flex: 1;
+}
+
+/* ===== HEADER ===== */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0,136,255,0.9);
+    color: white;
+}
+
+.header img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+/* ===== NAVIGATION ===== */
+.menu {
+    position: relative;
+    background: rgba(0,0,50,0.85);
+    padding: 15px 0;
+}
+
+.menu-center {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.menu-right {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #00c3ff;
+}
+
+/* ===== HELLO + LOGOUT ===== */
+.greeting {
+    color: #FFD700; /* GOLD */
+    font-weight: bold;
+}
+
+.logout-btn {
+    padding: 8px 15px;
+    background: #FFD700;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #e6c200;
+    color: white;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: rgba(0,0,50,0.4);
+    color: white;
+}
+
+.contact-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.contact-section p {
+    margin-bottom: 40px;
+}
+
+/* CONTACT CARDS */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.contact-box {
+    background: white;
+    color: black;
+    padding: 25px;
+    width: 280px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: left;
+}
+
+.contact-box h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+/* LOCATION */
+.location {
+    margin-top: 30px;
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 15px;
+    width: 600px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(0,0,50,0.85);
+    color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 768px) {
+
+    .menu-center {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .menu-right {
+        position: static;
+        transform: none;
+        justify-content: center;
+        margin-top: 10px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <img src="logo4.jpeg" alt="Resort Logo">
+    <h1>Resort Reservation</h1>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="menu">
+    <div class="menu-center">
+        <a href="homepage.html">Home</a>
+        <a href="rooms.html">Our Rooms</a>
+        <a href="cottages.html">Cottages</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="menu-right">
+        <span class="greeting">Hello, Guest</span>
+        <a href="index1.html" class="logout-btn">Logout</a>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+<section class="contact-section">
+    <h1>Get In Touch</h1>
+    <p>We’re here to answer any questions you may have about our resort, rooms, or your reservations.</p>
+
+    <div class="contact-container">
+
+        <div class="contact-box">
+            <h3>General Inquiries</h3>
+            <p><strong>📧Email:</strong> info@resort.com</p>
+            <p><strong>📞Phone:</strong> +63 912 345 6789</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>Reservation Support</h3>
+            <p><strong>📧Email:</strong> meridafatima91@gmail.com</p>
+            <p><strong>📞Phone:</strong> +63 923 456 7890</p>
+        </div>
+
+    </div>
+
+    <div class="location">
+        <h3>📍 Our Location</h3>
+        <p>1000 Ocean Drive, Azure Coast, Resort Land</p>
+        <p>⏰ Office Hours: 8:00 AM – 10:00 PM</p>
+    </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Resort Reservation System. All rights reserved.
+</footer>
+
+</body>
+</html>

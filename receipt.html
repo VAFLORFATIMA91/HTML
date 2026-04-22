@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transaction Receipt</title>
+<style>
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background:
+        linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05)),
+        url("beach.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ===== RECEIPT CARD ===== */
+.receipt-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    max-width: 450px;
+    width: 90%;
+}
+
+.receipt-card h2 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #28a745;
+    text-align: center;
+}
+
+.receipt-card p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #555;
+    text-align: left;
+}
+
+.receipt-card strong {
+    color: #000;
+}
+
+/* Divider line */
+.hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 15px 0;
+}
+
+/* Payment Method Section */
+.payment-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.payment-info img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    margin-top: 20px;
+    background: linear-gradient(135deg, #1e90ff, #0066ff);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* Receipt footer */
+.receipt-footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: red;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    body {
+        background: white; /* remove background for print */
+        display: block;
+    }
+    .receipt-card {
+        box-shadow: none;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        border-radius: 0;
+    }
+    .btn {
+        display: none; /* hide buttons when printing */
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="receipt-card">
+    <h2>Transaction Receipt</h2>
+
+    <p><strong>Customer Name:</strong> John Doe</p>
+    <p><strong>Room Type:</strong> Standard - ₱3,500/night</p>
+    <p><strong>Check-In:</strong> 2026-04-22 <strong>@</strong> 8:00AM</p>
+    <p><strong>Check-Out:</strong> 2026-04-24 <strong>@</strong> 12:00PM</p>
+    <p><strong>Nights:</strong> 2</p>
+
+    <div class="hr"></div>
+
+    <p><strong>Total Amount:</strong> ₱7,000 </p>
+    <p><strong>Down Payment Paid:</strong> ₱3,500 </p>
+
+    <div class="hr"></div>
+
+    <p><strong>Payment Method:</strong></p>
+    <div class="payment-info">
+        <img src="bank.png" alt="Bank Transfer">
+        <span>Bank Transfer</span>
+    </div>
+
+    <!-- Print Receipt Button -->
+    <button class="btn" onclick="window.print()">Print Receipt</button>
+
+    <!-- Back to Home Button -->
+    <a href="homepage.html" class="btn">Back to Home</a>
+
+    <div class="receipt-footer">
+        Thank you for your reservation!<br>
+        Please keep this receipt for your records.
+    </div>
+</div>
+
+</body>
+</html>

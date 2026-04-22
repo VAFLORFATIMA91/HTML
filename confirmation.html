@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservation Confirmation</title>
+<style>
+/* ===== BODY ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:
+    linear-gradient(rgba(0,0,0,0.05),rgba(0,0,0,0.05)),
+    url("beach.jpeg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ===== CENTERED CARD ===== */
+.confirmation-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Heading centered */
+.confirmation-card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #007BFF;
+    text-align: center;
+}
+
+/* Details left-aligned */
+.confirmation-card p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #555;
+    text-align: left;
+}
+
+.confirmation-card strong {
+    color: #000;
+}
+
+/* ===== PAYMENT SECTION ===== */
+.payment-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Payment options container */
+.payment-options {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Individual payment card */
+.payment-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.payment-card:hover {
+    border-color: #007BFF;
+}
+
+.payment-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.payment-card span {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    margin: 15px 0;
+    background: linear-gradient(135deg, #1e90ff, #0066ff);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* ===== MODAL ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    top:0; left:0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+}
+
+/* Target modal when linked */
+.modal:target {
+    display: flex;
+}
+
+/* Close button inside modal */
+.modal a {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<div class="confirmation-card">
+    <h2>Reservation Confirmation</h2>
+
+    <p><strong>Name:</strong> John Doe</p>
+    <p><strong>Room Type:</strong> Standard - ₱3,500 /night</p>
+    <p><strong>Check-In:</strong> 2026-04-22 <strong>@</strong> 8:00AM</p>
+    <p><strong>Check-Out:</strong> 2026-04-24 <strong>@</strong> 12:00PM</p>
+    <p><strong>Nights:</strong> 2</p>
+
+    <p><strong>Total Amount:</strong> ₱7,000 </p>
+    <p><strong>Down Payment (50%):</strong> ₱3,500 </p>
+
+    <!-- Payment Section -->
+    <div class="payment-section">
+        <p style="text-align:center;">Please choose your preferred payment method:</p>
+        <div class="payment-options">
+            <!-- QR Payment clickable -->
+            <a href="#qrModal" class="payment-card">
+                <img src="QR.jpg" alt="QR Payment">
+                <span>Pay via QR Code</span>
+            </a>
+            <!-- Bank Transfer clickable -->
+            <a href="#bankModal" class="payment-card">
+                <img src="bank.png" alt="Bank Transfer">
+                <span>Pay via Bank Transfer</span>
+            </a>
+        </div>
+    </div>
+
+    <a href="receipt.html" class="btn">Confirm Payment</a>
+    
+</div>
+
+<!-- ===== MODAL QR ===== -->
+<div id="qrModal" class="modal">
+    <a href="#">×</a>
+    <img src="QR.jpg" alt="QR Code Full Image">
+</div>
+
+<!-- ===== MODAL BANK ===== -->
+<div id="bankModal" class="modal">
+    <a href="#">×</a>
+    <img src="bank.png" alt="Bank Transfer Full Image">
+</div>
+
+</body>
+</html>

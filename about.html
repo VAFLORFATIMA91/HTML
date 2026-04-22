@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - Resort Reservation</title>
+
+<style>
+
+/* ===== FULL PAGE LAYOUT ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("beach.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+main {
+    flex: 1;
+}
+
+/* ===== HEADER ===== */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(0,136,255,0.9);
+    color: white;
+}
+
+.header img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 40px;
+}
+
+/* ===== NAVIGATION ===== */
+.menu {
+    position: relative;
+    background: rgba(0,0,50,0.85);
+    padding: 15px 0;
+}
+
+.menu-center {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.menu-right {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #00c3ff;
+}
+
+/* ===== HELLO + LOGOUT ===== */
+.greeting {
+    color: #FFD700; /* GOLD */
+    font-weight: bold;
+}
+
+.logout-btn {
+    padding: 8px 15px;
+    background: #FFD700;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #e6c200;
+    color: white;
+
+}
+
+/* ===== ABOUT CONTENT ===== */
+.about-container {
+    background: rgba(255,255,255,0.95);
+    width: 80%;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.about-container h2 {
+    text-align: center;
+    color: #007bff;
+    font-size: 36px;
+}
+
+.about-container h3 {
+    color: #00a884;
+    margin-top: 30px;
+}
+
+.about-container p {
+    line-height: 1.6;
+}
+
+.highlight-box {
+    background: #f1f1f1;
+    padding: 15px;
+    margin-top: 15px;
+    border-left: 6px solid #007bff;
+    border-radius: 8px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(0,0,50,0.85);
+    color: #fff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 768px) {
+
+    .header {
+        flex-direction: column;
+    }
+
+    .menu-center {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .menu-right {
+        position: static;
+        transform: none;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .about-container {
+        width: 95%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+    <img src="logo4.jpeg" alt="Resort Logo">
+    <h1>Resort Reservation</h1>
+</header>
+
+<!-- NAVIGATION -->
+<nav class="menu">
+    <div class="menu-center">
+        <a href="homepage.html">Home</a>
+        <a href="rooms.html">Our Rooms</a>
+        <a href="cottages.html">Cottages</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="menu-right">
+        <span class="greeting">Hello, Guest</span>
+        <a href="index1.html" class="logout-btn">Logout</a>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main>
+
+<div class="about-container">
+    <h2>About Our Resort</h2>
+
+    <p>
+        Welcome to Resort Central, your premier destination for luxury and relaxation.
+        We are dedicated to providing unforgettable experiences with world-class amenities and exceptional service.
+    </p>
+
+    <h3>Our Mission</h3>
+    <p>
+        Our mission is to create a sanctuary where guests can escape everyday stress.
+        We ensure that every stay is customized, comfortable, and truly memorable.
+    </p>
+
+    <h3>Why Choose Us?</h3>
+
+    <div class="highlight-box">
+        <strong>Stunning Location:</strong> Situated on pristine shores with breathtaking views.
+    </div>
+
+    <div class="highlight-box">
+        <strong>Luxurious Rooms:</strong> Modern, elegant, and designed for maximum comfort.
+    </div>
+
+    <div class="highlight-box">
+        <strong>Seamless Booking:</strong> Easy and secure online reservations anytime.
+    </div>
+
+    <div class="highlight-box">
+        <strong>Dedicated Staff:</strong> Professional team ready to serve you.
+    </div>
+
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Resort Reservation System. All rights reserved.
+</footer>
+
+</body>
+</html>
